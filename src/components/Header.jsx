@@ -1,19 +1,27 @@
 import React from 'react';
-import logoSvg from './assets/img/pizza-logo.svg';
+import logoSvg from '../assets/img/pizza-logo.svg';
+import {Button} from '../components'
+
 
 const Header = () => {
+
+  const random = () => {
+    alert("nazhal na etu knopku")
+  }
   return (
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <img width="38" src={logoSvg} alt="Pizza logo" />
+          <img width="38" src={logoSvg} alt="Pizza logo"/>
           <div>
             <h1>React Pizza</h1>
             <p>самая вкусная пицца во вселенной</p>
           </div>
         </div>
+
+
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <Button className="button--cart" random={random}>
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -46,8 +54,9 @@ const Header = () => {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Button>
         </div>
+
       </div>
     </div>
   );
