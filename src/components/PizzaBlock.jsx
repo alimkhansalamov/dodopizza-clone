@@ -18,7 +18,7 @@ const PizzaBlock = ({name, imageUrl, price, types, sizes}) => {
     setAvailableSizes(index)
   }
 
-  console.log(name,types)
+  // console.log(name,types)
 
   return (
 

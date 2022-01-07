@@ -3,4 +3,3 @@ export const setPizzas = (items) => ({
     payload: items,
   }
 );
-

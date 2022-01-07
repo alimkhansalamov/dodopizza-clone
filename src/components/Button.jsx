@@ -3,10 +3,9 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 
-const Button = ({ className, outline, children, random}) => {
+const Button = ({ className, outline, children}) => {
   return (
     <button
-      onClick={() => random()}
       className={classNames('button', className, {
         'button--outline': outline,
       })}

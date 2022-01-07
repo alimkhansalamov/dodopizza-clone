@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const SortPopup = ({items}) => {
+const SortPopup = React.memo(({items}) => {
 
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [activeItem, setActiveItem] = useState(1);
@@ -13,20 +13,20 @@ const SortPopup = ({items}) => {
     setVisiblePopup(!visiblePopup)
   }
 
-  
+
   const handleOutsideClick = (e) => {
     if(!e.path.includes(sortRef.current)){
       setVisiblePopup(false)
       console.log('setVisiblePopup changed to false to close the popup')
     }
-    
+
   }
   useEffect(() => {
       document.body.addEventListener('click', handleOutsideClick)
 
-  }
+    }
 
-  , [])
+    , [])
 
   const onSelectItem = (index) => {
     setActiveItem(index)
@@ -68,6 +68,6 @@ const SortPopup = ({items}) => {
       </div>}
     </div>
   );
-};
+})
 
 export default SortPopup;
