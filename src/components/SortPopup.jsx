@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const SortPopup = React.memo(({ items }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
-  const [activeItem, setActiveItem] = useState(1);
+  const [activeItem, setActiveItem] = useState(0);
   const sortRef = useRef();
   const activeLabel = items[activeItem].name;
 
