@@ -11,16 +11,16 @@ import { fetchPizzas } from "../redux/actions/pizzas";
 import { addPizzaToCart } from "../redux/actions/cart";
 
 const categoryNames = [
-  "Мясные",
-  "Вегетарианская",
-  "Гриль",
-  "Острые",
-  "Закрытые",
+  "Meat",
+  "Vegetarian",
+  "Grill",
+  "Acute",
+  "Closed",
 ];
 const sortItems = [
-  { name: "популярности", type: "popular", order: "desc" },
-  { name: "цене", type: "price", order: "desc" },
-  { name: "алфавиту", type: "name", order: "asc" },
+  { name: "popularity", type: "popular", order: "desc" },
+  { name: "price", type: "price", order: "desc" },
+  { name: "name", type: "name", order: "asc" },
 ];
 
 const Home = () => {
@@ -56,7 +56,7 @@ const Home = () => {
     <div className="container">
       <div className="content__top">
         <Categories
-          activeCategory={category} //from redux
+          activeCategory={category}
           onClickCategory={onSelectCategory}
           items={categoryNames}
         />
@@ -66,7 +66,7 @@ const Home = () => {
           onClickSortType={onSelectSortType}
         />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">All pizzas</h2>
       <div className="content__items">
         {isLoaded ?
           items.map((obj) => (
