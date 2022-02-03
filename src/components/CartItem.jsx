@@ -1,7 +1,28 @@
-import React from 'react';
+import React from "react";
+import Button from "./Button";
 
+const CartItem = ({
+  id,
+  name,
+  size,
+  type,
+  totalPrice,
+  totalCount,
+  onRemove,
+  onMinus,
+  onPlus,
+}) => {
+  const handleRemoveClick = () => {
+    onRemove(id);
+  };
 
-const CartItem = ({name, size, type, totalPrice, totalCount}) => {
+  const handlePlusItem = () => {
+    onPlus(id);
+  };
+
+  const handleMinusItem = () => {
+    onMinus(id);
+  };
   return (
     <div className="cart__item">
       <div className="cart__item-img">
@@ -13,10 +34,15 @@ const CartItem = ({name, size, type, totalPrice, totalCount}) => {
       </div>
       <div className="cart__item-info">
         <h3>{name}</h3>
-        <p>{type} dough, {size} cm.</p>
+        <p>
+          {type} dough, {size} cm.
+        </p>
       </div>
       <div className="cart__item-count">
-        <div className="button button--outline button--circle cart__item-count-minus">
+        <div
+          onClick={handleMinusItem}
+          className="button button--outline button--circle cart__item-count-minus"
+        >
           <svg
             width="10"
             height="10"
@@ -35,7 +61,10 @@ const CartItem = ({name, size, type, totalPrice, totalCount}) => {
           </svg>
         </div>
         <b>{totalCount}</b>
-        <div className="button button--outline button--circle cart__item-count-plus">
+        <div
+          onClick={handlePlusItem}
+          className="button button--outline button--circle cart__item-count-plus"
+        >
           <svg
             width="10"
             height="10"
@@ -58,7 +87,7 @@ const CartItem = ({name, size, type, totalPrice, totalCount}) => {
         <b>{totalPrice} €</b>
       </div>
       <div className="cart__item-remove">
-        <div className="button button--outline button--circle">
+        <Button onClick={handleRemoveClick} outline className="button--circle">
           <svg
             width="10"
             height="10"
@@ -75,7 +104,7 @@ const CartItem = ({name, size, type, totalPrice, totalCount}) => {
               fill="#EB5A1E"
             />
           </svg>
-        </div>
+        </Button>
       </div>
     </div>
   );
